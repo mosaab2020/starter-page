@@ -1,5 +1,4 @@
 // TODOs: add whatsapp link support and make url open in one key press
-
 const clockDiv = document.getElementById("clockDiv");
 let hiCharY = document.getElementsByClassName("hiCharY");
 let hiCharT = document.getElementsByClassName("hiCharT");
@@ -7,8 +6,10 @@ let hiCharG = document.getElementsByClassName("hiCharG");
 let hiCharE = document.getElementsByClassName("hiCharE");
 let hiCharW = document.getElementsByClassName("hiCharW");
 let hiCharO = document.getElementsByClassName("hiCharO");
+
 let lastKey;
 let lastKeyTime;
+let keyList = [];
 
 function startTime() {
   const today = new Date();
@@ -59,6 +60,7 @@ function handleShortcut(event) {
   // if a key is pressed (the "y" key)
   if (event.key === "y") {
     changeColor(hiCharY);
+    keyList.push("y");
     if (lastKey === "y" && currentTime - lastKeyTime <= 500) {
       openWebsiteAndResetKey("https://www.youtube.com/");
     }
